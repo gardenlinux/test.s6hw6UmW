@@ -1,0 +1,11 @@
+on:
+  push:
+  repository_dispatch:
+    types:
+      - snapshot_update
+    build_deps: gardenlinux/test.axgTYSlo 3.3.0-3gardenlinux0
+jobs:
+  build:
+    uses: gardenlinux/package-build-ng/.github/workflows/build.yml@main
+    with:
+      release: ${{ github.ref == 'refs/heads/main' }}
